@@ -21,21 +21,29 @@ var guessesSoFarText = document.getElementById("guessesSoFar-text")
 document.onkeyup = function (event) {
 //user chooses any letter on keyboard
     var userGuess = event.key
+    var reset = function () {
+        guessesLeft = 9;
+        guessesSoFar = [];
+    }
 //computer chooses random letter 
     var computerGuess = computerGuesses[Math.floor(Math.random() * computerGuesses.length)];
     console.log("user guess= " + userGuess)
     console.log("computer guess= " + computerGuess);
 
-    if (userGuess === computerGuess) {
-        console.log("User wins!")
-        wins++;
-    } else  {
-        console.log("try again")
-        guessesSoFar.push(event.key);
+    if ((guessesLeft > 1) && (userGuess != computerGuess)) {
+        guessesLeft--;
+        guessesSoFar.push(userGuess);
+    } else if (userGuess === computerGuess) {
+        win++;
+        reset();
+    } else {
+        losses++;
+        reset();
     }
-
+    
     directionsText.textContent = "Guess what letter I'm thinking of";
-    winsText.textContent = "wins: " + wins; 
-    lossesText.textContent = "losses: " + losses;
-    guessesLeftText.textContent = "Guesses Left: " - guessesLeft;
+    winsText.textContent = "Wins: " + wins; 
+    lossesText.textContent = "Losses: " + losses;
+    guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
+    guessesSoFarText.textContent = "Guesses so far: " + guessesSoFar;
 };
