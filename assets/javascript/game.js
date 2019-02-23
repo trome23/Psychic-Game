@@ -34,7 +34,7 @@ document.onkeyup = function (event) {
         guessesLeft--;
         guessesSoFar.push(userGuess);
     } else if (userGuess === computerGuess) {
-        win++;
+        wins++;
         reset();
     } else {
         losses++;
