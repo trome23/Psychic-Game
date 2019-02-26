@@ -20,7 +20,7 @@ var guessesSoFarText = document.getElementById("guessesSoFar-text")
 
 document.onkeyup = function (event) {
 //user chooses any letter on keyboard
-    var userGuess = event.key
+    var userGuess = event.key.toLowerCase();
     var reset = function () {
         guessesLeft = 9;
         guessesSoFar = [];
@@ -41,7 +41,7 @@ document.onkeyup = function (event) {
         reset();
     }
     
-    directionsText.textContent = "Guess what letter I'm thinking of";
+    directionsText.textContent = "Guess a Letter!";
     winsText.textContent = "Wins: " + wins; 
     lossesText.textContent = "Losses: " + losses;
     guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
