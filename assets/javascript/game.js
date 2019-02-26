@@ -12,7 +12,6 @@ var losses = 0;
 var guessesLeft = 9;
 var guessesSoFar = []; 
 
-var directionsText = document.getElementById("directions-text")
 var winsText = document.getElementById("wins-text")
 var lossesText = document.getElementById("losses-text")
 var guessesLeftText = document.getElementById("guessesLeft-text")
@@ -41,8 +40,7 @@ document.onkeyup = function (event) {
         reset();
     }
     
-    directionsText.textContent = "Guess a Letter!";
-    winsText.textContent = "Wins: " + wins; 
+    winsText.textContent = "win: " + wins; 
     lossesText.textContent = "Losses: " + losses;
     guessesLeftText.textContent = "Guesses Left: " + guessesLeft;
     guessesSoFarText.textContent = "Guesses so far: " + guessesSoFar;
